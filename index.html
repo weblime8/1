@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="color-scheme" content="light dark">
+    <title>班级博客</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/layui.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/iconfont.css?t=1706260572">
+    <link rel="stylesheet" href="/css/simply.css?t=1706260572">
+    <script>
+        window.theme = {
+            isMobile: /windows phone|iphone|android|HarmonyOS/gi.test(window.navigator.userAgent),
+            mediaQuery: window.matchMedia('(prefers-color-scheme: dark)'),
+            detectIE: function() {
+                let ua = window.navigator.userAgent,
+                    ie = ua.indexOf('MSIE ');
+                if (ie > 0) {
+                    return parseInt(ua.substring(ie + 5, ua.indexOf('.', ie)), 10);
+                }
+                if (ua.indexOf('Trident/') > 0) {
+                    let rv = ua.indexOf('rv:');
+                    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+                }
+                let edge = ua.indexOf('.Edge/');
+                return edge > 0 && parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+            },
+            swiperDelay: 3
+        }
+        theme.detectIE() && alert('当前站点不支持IE浏览器（或您开启了兼容模式），请使用其他浏览器访问（或关闭兼容模式）。');
+        localStorage.getItem('dark-mode') && document.documentElement.classList.add('dark');
+
+        function darkModeHandler() {
+            if (!theme.isMobile) return;
+            if (theme.mediaQuery.matches) {
+                document.documentElement.classList.remove('light');
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+            }
+        }
+        darkModeHandler();
+        theme.mediaQuery.addListener(darkModeHandler);
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="flex-v-between container">
+            <div class="flex-v-center left">
+                <a class="flex-v-center logo" href="/index.html" title="2202届班级博客">班级博客 </a>
+            </div>
+            <div class="flex-v-between right">
+                <nav>
+                    <nav>
+                        <ul class="nav-items">
+                            <li class="item"><a href="/index.html">首页</a></li>
+                            <li class="item"><a href="/lt/">反馈大厅</a></li>
+                            <li class="item">
+                                <a href="/Chat/">聊天机器人</a>
+                            </li>
+                            <li class="item">
+                                <a>联系开发者<i class="icon-simply icon-down ml-5"></i></a>
+                                <div class="nav-child-box">
+                                    <ul class="nav-child-items">
+                                        <li class="item"><a href="https://work.weixin.qq.com/kfid/kfc1abc6e82a6a64579">微信客服</a></li>
+                                        <li class="item"><a href="/ID/wechat.html">企业微信</a></li>
+                                        <li class="item"><a href="/ID/qq.html">QQ</a></li>
+                                        <li class="item"><a href="/ID/bilibili.html">哔哩哔哩</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </nav>
+                <div class="divider-vertical">
+                    <button class="button-switch" id="dark-mode" type="button" role="switch">
+        			<div class="icon-box">
+        				<i class="icon-simply icon-during"></i>
+        				<i class="icon-simply icon-night"></i>
+        			</div>
+        		</button>
+                </div>
+                <div class="divider-vertical"><a class="color-theme" href="/login/signin.html">登录</a></div>
+                <div class="divider-vertical"><a class="color-theme" href="/login/signup.html">注册</a></div>
+            </div>
+            <div class="flex-center xs-nav-button">
+                <div class="nav-burger"></div>
+            </div>
+            <div class="xs-nav-layer"></div>
+        </div>
+    </header>
+
+    <div class="container frame-container">
+        <main class="box frame-main">
+
+            <div class="display-flex film-box">
+                <div class="swiper swiper-filmstrip" id="swiper-filmstrip-index-1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a class="percent-image" href="/page/tz/">
+                                <figure class="figure">
+                                    <img src="/img/开站.png" alt="科技语者资源站开站通知" />
+                                    <figcaption class="figcaption">
+                                        <span class="badge mr-5">推荐</span>
+                                        <span class="title">科技语者资源站开站通知</span>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="simply-pagination"></div>
+                    <div class="simply-button-prev">
+                        <i class="icon-simply icon-prev"></i>
+                    </div>
+                    <div class="simply-button-next">
+                        <i class="icon-simply icon-next"></i>
+                    </div>
+                </div>
+                <ul class="recommend-image">
+                    <li class="item">
+                        <a class="percent-image" href="/Chat/ ">
+                            <figure class="figure">
+                                <img src="/img/13.png" alt="班级博客机器人" />
+                                <figcaption class="figcaption">
+                                    <span class="badge mr-5">推荐</span>
+                                    <span class="title">班级博客机器人</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="percent-image" href="/lt/">
+                            <figure class="figure">
+                                <img src="/img/反馈中心.png" alt="班级博客反馈平台" />
+                                <figcaption class="figcaption">
+                                    <span class="badge mr-5">推荐</span>
+                                    <span class="title">班级博客反馈平台</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modularity modularity-list">
+                <div class="modul-head">
+                    <ul class="flex-list">
+                        <li class="item active">最新文章</li>
+                    </ul>
+                </div>
+                <div class="modul-body">
+                    <ul class="article-list">
+                        <li class="item">
+                            <div class="thumbnail">
+                                <a class="percent-image" href="/page/video/01/">
+                                    <figure class="figure">
+                                        <img src="/img/20240413115623.png" alt="跃动青春，初中跳长绳的乐趣" />
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="infomation">
+                                <h3 class="title">
+                                    <a href="/page/video/01/">跃动青春，初中跳长绳的乐趣</a>
+                                </h3>
+                                <div class="description">在初中时期，长绳是许多学生喜爱的户外活动之一。无论是在操场上还是在课间休息时间，学生们总是聚集在一起，挥舞着长绳，跃动着青春的活力。这项简单而又充满乐趣的游戏不仅锻炼了学生们的身体，还培养了他们的团队合作精神和竞技意识。本文将探讨初中跳长绳的乐趣所在，以及它对学生们成长的积极影响。</div>
+                                <ul class="flex-list meta">
+
+                                    <li class="item time">
+                                        <i class="icon-simply icon-time mr-3"></i>2024-04-13 12:30 </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="thumbnail">
+                                <a class="percent-image" href="/page/zk/">
+                                    <figure class="figure">
+                                        <img src="/img/祝贺中考学子金榜题名，在新阶段继续腾飞！.png" alt="中考倒计时" />
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="infomation">
+                                <h3 class="title">
+                                    <a href="/page/zk/">中考倒计时</a>
+                                </h3>
+                                <div class="description">只限天津地区2024届中考使用</div>
+                                <ul class="flex-list meta">
+
+                                    <li class="item time">
+                                        <i class="icon-simply icon-time mr-3"></i>2024-04-13 13:30 </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+        </main>
+        <aside class="frame-aside">
+
+            <div class="box aside-blogger">
+                <div class="blogger-image">
+                    <img src="/img/共同铸造着属于我们的辉煌.png" alt="明日之星 共筑梦想" />
+                </div>
+                <div class="user-info">
+                    <div class="avatar">
+                        <img src="/img/微信图片_20240413103738.jpg" alt="班级博客" />
+                    </div>
+                    <div class="user-meta">
+                        <div class="nickname">班级博客</div>
+                        <div class="other">明日之星 共筑梦想</div>
+                    </div>
+                </div>
+                <ul class="flex-list blogger-statistic">
+                    <li class="item">
+                        <div class="name">文章数</div>
+                        <div class="value">2</div>
+                    </li>
+                    <li class="item">
+                        <div class="name">评论数</div>
+                        <div class="value">--</div>
+                    </li>
+                    <li class="item">
+                        <div class="name">用户数</div>
+                        <div class="value">43</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box modularity aside-search">
+                <div class="modul-head">
+                    <div class="modul-title">
+                        <i class="icon-simply icon-search mr-5"></i>搜索作品</div>
+                    <div class="colorful-dot"></div>
+                </div>
+                <div class="modul-body">
+                    <form name="aside-search-form" method="get" action="#">
+                        <input name="keyword" class="search-input" autocomplete="off" aria-label="Search" type="text">
+                        <button type="submit" class="search-submit">搜索</button>
+                    </form>
+                </div>
+            </div>
+            <div class="box modularity aside-puzzle">
+                <div class="modul-head">
+                    <div class="modul-title">
+                        <i class="icon-simply icon-puzzle mr-5"></i>时光慢漫 </div>
+                    <div class="colorful-dot"></div>
+                </div>
+                <div class="modul-body">
+                    <div class="aside-timelife-body"></div>
+                </div>
+            </div>
+            <div class="box modularity aside-archive">
+                <div class="modul-head">
+                    <div class="modul-title">
+                        <i class="icon-simply icon-archive mr-5"></i>备课资源</div>
+                    <div class="colorful-dot"></div>
+                </div>
+                <div class="modul-body">
+                    <div class="virtual-select">
+                        <div class="action">
+                            <div class="value">请选择</div>
+                            <i class="icon-simply icon-down"></i>
+                        </div>
+                        <ul class="select">
+                            <li class="option"><a href="/resource/book/">电子教材</a></li>
+                            <li class="option"><a href="/resource/xkw/">学科网</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </aside>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="xs-hidden">内容是不是很不错？按<kbd class="mx-5">Ctrl</kbd>＋<kbd class="mx-5">D</kbd>加入收藏夹吧！</div>
+                <ul class="flex-list">
+                    <li class="item"><a href="https://icp.gov.moe/?keyword=20242202" target="_blank">萌ICP备20242202号</a></li>
+                </ul>
+                <div class="info">
+
+                    <script>
+                        ! function(p) {
+                            "use strict";
+                            ! function(t) {
+                                var s = window,
+                                    e = document,
+                                    i = p,
+                                    c = "".concat("https:" === e.location.protocol ? "https://" : "http://", "sdk.51.la/js-sdk-pro.min.js"),
+                                    n = e.createElement("script"),
+                                    r = e.getElementsByTagName("script")[0];
+                                n.type = "text/javascript", n.setAttribute("charset", "UTF-8"), n.async = !0, n.src = c, n.id = "LA_COLLECT", i.d = n;
+                                var o = function() {
+                                    s.LA.ids.push(i)
+                                };
+                                s.LA ? s.LA.ids && o() : (s.LA = p, s.LA.ids = [], o()), r.parentNode.insertBefore(n, r)
+                            }()
+                        }({
+                            id: "KHHxF3AZ2YznjvOy",
+                            ck: "KHHxF3AZ2YznjvOy",
+                            autoTrack: true,
+                            hashMode: true
+                        });
+                    </script>
+                </div>
+            </div>
+        </footer>
+        <div class="sidebar">
+            <div class="item sidebar-totop">
+                <i class="icon-simply icon-totop"></i>
+            </div>
+        </div>
+        <script language="JavaScript">
+            //禁止页面选择以及鼠标右键
+            document.οncοntextmenu = function() {
+                return false;
+            };
+            document.onselectstart = function() {
+                return false;
+            };
+            let h = window.innerHeight;
+            let w = window.innerWidth;
+
+            //禁用右键
+            document.oncontextmenu = function() {
+                return false;
+            };
+
+            //在本网页的任何键盘敲击事件都是无效操作 （防止F12和shift+ctrl+i调起开发者工具）  
+            window.onkeydown = window.onkeyup = window.onkeypress = function() {
+                window.event.returnValue = false;
+                return false;
+            }
+
+            //禁用开发者工具F12
+            document.onkeydown = function() {
+                if (window.event && window.event.keyCode == 123) {
+                    event.keyCode = 0;
+                    event.returnValue = false;
+                    return false;
+                }
+            };
+
+            //如果用户在工具栏调起开发者工具，那么判断浏览器的可视高度和可视宽度是否有改变，如有改变则关闭本页面  
+            window.onresize = function() {
+                if (h != window.innerHeight || w != window.innerWidth) {
+                    window.close();
+                    window.location = "about:blank";
+                }
+            }
+        </script>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/layui.js"></script>
+        <script src="/js/swiper-bundle.min.js"></script>
+        <script src="/js/clipboard.min.js"></script>
+        <script src="/js/simply.js?t=1706260572"></script>
+</body>
+
+</html>

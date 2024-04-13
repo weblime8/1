@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024届中考倒计时</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            background-image: url('/img/12.png');
+            /* 替换为你自己的背景图片路径 */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            /* 去除默认的页面边距 */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 75vh;
+            /* 让内容占满整个视口高度 */
+            padding-top: 20px;
+            /* 调整顶部填充 */
+        }
+        
+        h1 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        #countdown {
+            color: #ffffff;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>2024届中考倒计时</h1>
+        <div id="countdown"></div>
+    </div>
+
+    <script>
+        // 设置目标日期
+        const targetDate = new Date('2024-06-27T00:00:00').getTime();
+
+        // 更新倒计时函数
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // 计算剩余时间
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // 在页面上显示剩余时间
+            document.getElementById('countdown').innerHTML = `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+
+            // 如果倒计时结束，则显示提示信息
+            if (distance < 0) {
+                clearInterval(interval);
+                document.getElementById('countdown').innerHTML = '倒计时结束';
+            }
+        }
+
+        // 每秒更新一次倒计时
+        const interval = setInterval(updateCountdown, 1000);
+
+        // 页面加载时先执行一次更新
+        updateCountdown();
+    </script>
+    <script language="JavaScript">
+        //禁止页面选择以及鼠标右键
+        document.οncοntextmenu = function() {
+            return false;
+        };
+        document.onselectstart = function() {
+            return false;
+        };
+        let h = window.innerHeight;
+        let w = window.innerWidth;
+
+        //禁用右键
+        document.oncontextmenu = function() {
+            return false;
+        };
+
+        //在本网页的任何键盘敲击事件都是无效操作 （防止F12和shift+ctrl+i调起开发者工具）  
+        window.onkeydown = window.onkeyup = window.onkeypress = function() {
+            window.event.returnValue = false;
+            return false;
+        }
+
+        //禁用开发者工具F12
+        document.onkeydown = function() {
+            if (window.event && window.event.keyCode == 123) {
+                event.keyCode = 0;
+                event.returnValue = false;
+                return false;
+            }
+        };
+
+        //如果用户在工具栏调起开发者工具，那么判断浏览器的可视高度和可视宽度是否有改变，如有改变则关闭本页面  
+        window.onresize = function() {
+            if (h != window.innerHeight || w != window.innerWidth) {
+                window.close();
+                window.location = "about:blank";
+            }
+        }
+    </script>
+</body>
+
+</html>
